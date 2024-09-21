@@ -1,4 +1,3 @@
-import React from 'react';
 
 function HeaderBox({ type = 'title', title, subtext, user }: HeaderBoxProps) {
   return (
