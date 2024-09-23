@@ -9,13 +9,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import CustomInput from './CustomInput';
 import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { signIn, signUp } from '@/lib/actions/user.actions';
 
-function AuthForm({ type }: { type: string }) {
+const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter()
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,17 +36,18 @@ function AuthForm({ type }: { type: string }) {
     try {
       // Sign up with Appwrite & create plain link token
       if (type === 'sign-up') {
-        // const newUser = await signUp(data);
-        // setUser(newUser);
+        const newUser = await signUp(data);
+        
+        setUser(newUser);
       }
 
       if (type === 'sign-in') {
-        // const response = await SignIn({
-        //   email: data.email,
-        //   password: data.password,
-        // });
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
 
-        // if (response) router.push('/')
+        if (response) router.push('/')
       }
     } catch (error) {
       console.error(error);
