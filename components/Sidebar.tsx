@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Footer from './Footer';
 
-function Sidebar({ user }: SiderbarProps) {
-  const pathName = usePathname();
+const Sidebar = ({ user }: SiderbarProps) => {
+  const pathname = usePathname();
 
   return (
     <section className='sidebar'>
@@ -18,20 +18,21 @@ function Sidebar({ user }: SiderbarProps) {
             src='/icons/logo.svg'
             width={34}
             height={34}
-            alt='Bank Logo'
+            alt='Horizon logo'
             className='size-[24px] max-xl:size-14'
           />
-          <h1 className='sidebar-logo'>Bank App</h1>
+          <h1 className='sidebar-logo'>Horizon</h1>
         </Link>
+
         {sidebarLinks.map((item) => {
           const isActive =
-            pathName === item.route || pathName.startsWith(`${item.route}/`);
+            pathname === item.route || pathname.startsWith(`${item.route}/`);
 
           return (
             <Link
-              className={cn('sidebar-link', { 'bg-bank-gradient': isActive })}
               href={item.route}
               key={item.label}
+              className={cn('sidebar-link', { 'bg-bank-gradient': isActive })}
             >
               <div className='relative size-6'>
                 <Image
@@ -49,11 +50,11 @@ function Sidebar({ user }: SiderbarProps) {
             </Link>
           );
         })}
-        USER
       </nav>
-      <Footer user={user} type="desktop" />
+
+      <Footer user={user} />
     </section>
   );
-}
+};
 
 export default Sidebar;
