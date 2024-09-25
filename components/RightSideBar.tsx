@@ -3,8 +3,6 @@ import Link from 'next/link';
 import BankCard from './BankCard';
 
 function RightSideBar({ user, transactions, banks }: RightSidebarProps) {
-  console.log(user)
-
   return (
     <aside className='right-sidebar'>
       <section className='flex flex-col pb-8'>
@@ -38,7 +36,7 @@ function RightSideBar({ user, transactions, banks }: RightSidebarProps) {
               <BankCard
                 key={banks[0].$id}
                 account={banks[0]}
-                userName={user.name}
+                userName={`${user.firstName} ${user.lastName}`}
                 showBalance={false}
               />
             </div>
