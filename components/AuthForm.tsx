@@ -81,10 +81,10 @@ const AuthForm = ({ type }: { type: string }) => {
             src='/icons/logo.svg'
             width={34}
             height={34}
-            alt='Horizon logo'
+            alt='Bank App logo'
           />
           <h1 className='text-26 font-ibm-plex-serif font-bold text-black-1'>
-            Horizon
+            Bank App
           </h1>
         </Link>
 
