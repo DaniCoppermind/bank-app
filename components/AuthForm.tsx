@@ -170,14 +170,14 @@ const AuthForm = ({ type }: { type: string }) => {
                 control={form.control}
                 name='email'
                 label='Email'
-                placeholder='Enter your email'
+                placeholder='test@user.com'
               />
 
               <CustomInput
                 control={form.control}
                 name='password'
                 label='Password'
-                placeholder='Enter your password'
+                placeholder='test12345'
               />
 
               <div className='flex flex-col gap-4'>
